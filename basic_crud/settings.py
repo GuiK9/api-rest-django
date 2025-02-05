@@ -137,4 +137,3 @@ REST_FRAMEWORK = {
 REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'].append(
     'rest_framework_simplejwt.authentication.JWTAuthentication'
 )
-
