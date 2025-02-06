@@ -7,8 +7,8 @@ router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
 
 custom_patterns = [
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair/'),
-    path('token/', TokenRefreshView.as_view(), name='token_refresh/'),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', RegisterView.as_view(), name='register')
 ]
 
