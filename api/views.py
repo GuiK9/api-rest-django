@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from .serializers import ItemSerializer
 from rest_framework.generics import CreateAPIView
 from api.serializers import UserSerializer
-from rest_framework.response import Response 
+from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 
@@ -19,8 +19,6 @@ class RegisterView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-
-        print(serializer.is_valid())
 
         if serializer.is_valid():
             serializer.save()

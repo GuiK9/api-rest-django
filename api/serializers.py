@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Item
 from django.contrib.auth.models import User
-from rest_framework.permissions import AllowAny
+from django.contrib.auth import get_user_model
 
 
 class ItemSerializer(serializers.ModelSerializer):
@@ -11,7 +11,6 @@ class ItemSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    permission_classes = [AllowAny]
     password = serializers.CharField(write_only=True)
 
     class Meta:
@@ -19,9 +18,9 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'username', 'password']
 
-        def create(self, validated_data):
-            user = User.objects.create_user(
-                username=validated_data['userame'],
-                password=validated_data['password'],
-            )
-            return user
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            password=validated_data['password'],
+        )
+        return user
