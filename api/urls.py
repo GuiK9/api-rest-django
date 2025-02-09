@@ -12,4 +12,5 @@ custom_patterns = [
     path('register/', RegisterView.as_view(), name='register')
 ]
 
+
 urlpatterns = router.urls + custom_patterns
